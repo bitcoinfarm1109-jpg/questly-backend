@@ -1472,3 +1472,18 @@ if __name__ == "__main__":
         print("\nCerrando RbxQuestly...")
     finally:
         server.server_close()
+        # Variable para el control manual del diseño/temporada desde el Admin
+active_season_config = "original"
+
+@app.route('/api/admin/set-season', methods=['POST'])
+def set_season():
+    global active_season_config
+    data = request.json
+    season = data.get('season', 'original')
+    active_season_config = season
+    return {"status": "success", "active_season": active_season_config}
+
+@app.route('/api/admin/get-season', methods=['GET'])
+def get_season():
+    global active_season_config
+    return {"active_season": active_season_config}
