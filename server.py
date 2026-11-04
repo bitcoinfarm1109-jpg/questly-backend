@@ -1442,10 +1442,14 @@ class RbxQuestlyHandler(SimpleHTTPRequestHandler):
 # INICIO
 # ============================================================
 
+# ============================================================
+# INICIO
+# ============================================================
+
 if __name__ == "__main__":
     initialize_database()
 
-    # Obtiene el puerto dinámico que asigna Render, o usa 8000 si estás en tu PC local
+    # Lee el puerto dinámico que asigna Render, o usa 8000 si estás en tu PC local
     port = int(os.environ.get("PORT", 8000))
 
     server = ThreadingHTTPServer(
